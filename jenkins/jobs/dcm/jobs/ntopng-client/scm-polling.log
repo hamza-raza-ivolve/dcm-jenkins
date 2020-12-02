@@ -1,0 +1,11 @@
+Started on Nov 9, 2020 2:05:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision b99c84f65fd5eccde7cf1d94e578805a8e329248 (origin/qa-testing)
+using credential git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials git credentials
+ > git ls-remote -h -- https://github.com/iVolve-Tech/ms-egress-ntopng-client.git # timeout=10
+Found 5 remote heads on https://github.com/iVolve-Tech/ms-egress-ntopng-client.git
+[poll] Latest remote head revision on refs/heads/qa-testing is: b99c84f65fd5eccde7cf1d94e578805a8e329248 - already built by 18
+Done. Took 10 sec
+No changes

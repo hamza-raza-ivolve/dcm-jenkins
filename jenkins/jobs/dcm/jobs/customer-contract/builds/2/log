@@ -1,0 +1,63 @@
+Started by user [8mha:////4HD6tEfTJ7QsEaCvI2bAjbu33ztdrDILYMnn9DVuj0CjAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/dcm/customer-contract
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+using credential git
+Cloning the remote Git repository
+Cloning repository https://github.com/iVolve-Tech/ms-customer-contract
+ > git init /var/lib/jenkins/workspace/dcm/customer-contract # timeout=10
+Fetching upstream changes from https://github.com/iVolve-Tech/ms-customer-contract
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials git credentials
+ > git fetch --tags --progress -- https://github.com/iVolve-Tech/ms-customer-contract +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/iVolve-Tech/ms-customer-contract # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/iVolve-Tech/ms-customer-contract # timeout=10
+Fetching upstream changes from https://github.com/iVolve-Tech/ms-customer-contract
+using GIT_ASKPASS to set credentials git credentials
+ > git fetch --tags --progress -- https://github.com/iVolve-Tech/ms-customer-contract +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse origin/post-develop^{commit} # timeout=10
+Checking out Revision 1ae2cc4aa109fe2e52de17c13c86704be839cb4b (origin/post-develop)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1ae2cc4aa109fe2e52de17c13c86704be839cb4b # timeout=10
+Commit message: "Update Dockerfile"
+ > git rev-list --no-walk 1ae2cc4aa109fe2e52de17c13c86704be839cb4b # timeout=10
+[customer-contract] $ /bin/sh -xe /tmp/jenkins5369598895554171154.sh
++ mv .env.dev .env
+[customer-contract] $ /bin/sh -xe /tmp/jenkins2401361194446321616.sh
++ echo -----------------Create Docker image-----------------
+-----------------Create Docker image-----------------
++ docker build -t customer-contract:2 .
+Sending build context to Docker daemon  162.3kB
+Step 1/8 : FROM node:10.18-alpine
+ ---> cb69d515e572
+Step 2/8 : RUN mkdir customer-contract
+ ---> Using cache
+ ---> 9554a6b2ac46
+Step 3/8 : COPY . /customer-contract
+ ---> 9811cc36a64f
+Step 4/8 : WORKDIR /customer-contract
+ ---> Running in 01a8b2a7af64
+Removing intermediate container 01a8b2a7af64
+ ---> eff7997ea32b
+Step 5/8 : RUN npm install
+ ---> Running in 8706b47c348b
+[91mnpm WARN pricingplan@1.0.0 No repository field.
+[0m[91m
+[0madded 120 packages from 158 contributors and audited 120 packages in 8.153s
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+found 2 vulnerabilities (1 low, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container 8706b47c348b
+ ---> b828df65d91b
+Step 6/8 : RUN npm install nodemon -g
+ ---> Running in dee8b48c67d7
+Terminated
+Build was aborted
+Aborted by [8mha:////4HD6tEfTJ7QsEaCvI2bAjbu33ztdrDILYMnn9DVuj0CjAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Finished: ABORTED

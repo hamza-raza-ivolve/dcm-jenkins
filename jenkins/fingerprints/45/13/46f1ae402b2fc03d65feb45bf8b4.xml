@@ -1,0 +1,13 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2020-11-03 09:14:17.625 UTC</timestamp>
+  <md5sum>451346f1ae402b2fc03d65feb45bf8b4</md5sum>
+  <fileName>Credential id=ef8e12de-efe0-4f97-9c4c-cfcd7a917acc name=usman-ghani-ivolve/****** (usmanghaniivolvetech)</fileName>
+  <usages>
+    <entry>
+      <string>dcm/webclient</string>
+      <ranges>317-329</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

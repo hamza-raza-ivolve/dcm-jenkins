@@ -1,0 +1,57 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2020-03-17 11:45:56.948 UTC</timestamp>
+  <md5sum>742e92138c3a6a5efc2aad2b67989dfe</md5sum>
+  <fileName>Credential id=git-haris name=syed-haris-ivolve/******</fileName>
+  <usages>
+    <entry>
+      <string>dcm/python-app</string>
+      <ranges>1-25</ranges>
+    </entry>
+    <entry>
+      <string>dcm/report-collector</string>
+      <ranges>1-14</ranges>
+    </entry>
+    <entry>
+      <string>dcm/iam</string>
+      <ranges>1-17</ranges>
+    </entry>
+    <entry>
+      <string>dcm/kms</string>
+      <ranges>1-10</ranges>
+    </entry>
+    <entry>
+      <string>dcm/usage-report</string>
+      <ranges>1-9</ranges>
+    </entry>
+    <entry>
+      <string>dcm/ms-monitoring</string>
+      <ranges>1-5</ranges>
+    </entry>
+    <entry>
+      <string>dcm/ms-settings</string>
+      <ranges>1-23</ranges>
+    </entry>
+    <entry>
+      <string>dcm/webclient</string>
+      <ranges>1-65</ranges>
+    </entry>
+    <entry>
+      <string>dcm/ms-emailer</string>
+      <ranges>1-11</ranges>
+    </entry>
+    <entry>
+      <string>dcm/ms-logger</string>
+      <ranges>1-7</ranges>
+    </entry>
+    <entry>
+      <string>dcm/reserved-ecs</string>
+      <ranges>1-7</ranges>
+    </entry>
+    <entry>
+      <string>dcm/middleware</string>
+      <ranges>1-18</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

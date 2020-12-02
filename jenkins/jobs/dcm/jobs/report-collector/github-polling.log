@@ -1,0 +1,12 @@
+Started on Mar 18, 2020 9:45:12 AM
+Started by event from 192.30.252.97 ⇒ http://ivolve.dynu.net:8080/github-webhook/ on Wed Mar 18 09:45:12 UTC 2020
+Using strategy: Default
+[poll] Last Built Revision: Revision 9250998731716fa45a20f1b78d27e043e6b6f14d (origin/develop)
+using credential git-haris
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h -- https://github.com/ivolvetechnologies/ms-usage-report-collector # timeout=10
+Found 5 remote heads on https://github.com/ivolvetechnologies/ms-usage-report-collector
+[poll] Latest remote head revision on refs/heads/develop is: eeca035a8933b6309b890a1e7968938a2c24a0e0
+Done. Took 1.4 sec
+Changes found

@@ -1,0 +1,11 @@
+commit b80665a055a8aac60de9bfd1b7817c11a4dbf084
+tree 5ad8d07d2479ded202c054b20c27fe5b1a69b5c4
+parent 1e71f89686160531d443c78134cf0718ec6c44a8
+author faheel-ahmed-khatri <67996752+faheel-ahmed-khatri@users.noreply.github.com> 2020-10-09 13:12:37 +0500
+committer GitHub <noreply@github.com> 2020-10-09 13:12:37 +0500
+
+    Cloud7-1685'Restricting only Admin to delete contract (#5)
+    
+
+
+:100644 100644 ece68064db8ba994f05c21353492a34a9310f170 d4ba9f423188e6632596e739c4cb6b1a4f076ca2 M	routes/contracts.js

@@ -1,0 +1,55 @@
+commit 1e71f89686160531d443c78134cf0718ec6c44a8
+tree 42bc7b801034b8c851d6cb959d3afed8cc8a563a
+parent abb0c57c2b745ce37d0c04bd1ed65ccd806f6499
+author syedharishafeez <syed_haris98@yahoo.com> 2020-10-08 12:46:23 +0500
+committer syedharishafeez <syed_haris98@yahoo.com> 2020-10-08 12:46:23 +0500
+
+    Change response of user contract fetch
+
+
+:100644 100644 090aa97f0213061a5a5528307e7724b41e323e34 ece68064db8ba994f05c21353492a34a9310f170 M	routes/contracts.js
+commit abb0c57c2b745ce37d0c04bd1ed65ccd806f6499
+tree 8801005e7213f3f3d85dd35ff731a7d45991540e
+parent b731360c3268f317658f2f2526740783fec14a56
+author faheel-ahmed-khatri <67996752+faheel-ahmed-khatri@users.noreply.github.com> 2020-10-08 12:41:10 +0500
+committer GitHub <noreply@github.com> 2020-10-08 12:41:10 +0500
+
+    Bugfix/cloud7 1664 (#4)
+    
+    * CLOUD7-1645-Creating Multiple Contracts of Single User & Sending IsCustomer Attribute in body
+    
+    * CLOUD7-1645-Subtracting Quantity bugfix and Adding custom fields of fromContract
+    
+    * CLOUD7-1645-changing isCustomer response type from object to array
+    
+    * changing respond format from json to send
+
+:100644 100644 55ee056db9110bc1315affc3f2a86c209775a65e 090aa97f0213061a5a5528307e7724b41e323e34 M	routes/contracts.js
+commit b731360c3268f317658f2f2526740783fec14a56
+tree e31e6b341de271923e89c422436b800c9be7b503
+parent eb78490fd7c30ae4acc23d8716eb2efc4eaf8a41
+author faheel-ahmed-khatri <67996752+faheel-ahmed-khatri@users.noreply.github.com> 2020-10-06 17:57:02 +0500
+committer GitHub <noreply@github.com> 2020-10-06 17:57:02 +0500
+
+    Bugfix/cloud7 1664 (#3)
+    
+    * CLOUD7-1645-Creating Multiple Contracts of Single User & Sending IsCustomer Attribute in body
+    
+    * CLOUD7-1645-Subtracting Quantity bugfix and Adding custom fields of fromContract
+    
+    * CLOUD7-1645-changing isCustomer response type from object to array
+
+:100644 100644 c8b21b48e05a8c56973d1953e5e5054d7b42b6b2 55ee056db9110bc1315affc3f2a86c209775a65e M	routes/contracts.js
+commit eb78490fd7c30ae4acc23d8716eb2efc4eaf8a41
+tree 3fbbc4414ba57900b708e44ce40c80901d380169
+parent 1ae2cc4aa109fe2e52de17c13c86704be839cb4b
+author faheel-ahmed-khatri <67996752+faheel-ahmed-khatri@users.noreply.github.com> 2020-10-06 13:13:06 +0500
+committer GitHub <noreply@github.com> 2020-10-06 13:13:06 +0500
+
+    CLOUD7-1645-Creating Multiple Contracts of Single User & Sending IsCu… (#2)
+    
+    * CLOUD7-1645-Creating Multiple Contracts of Single User & Sending IsCustomer Attribute in body
+    
+    * CLOUD7-1645-Subtracting Quantity bugfix and Adding custom fields of fromContract
+
+:100644 100644 9e4b035bcee41c506a4a103c11d000d1a9b8c564 c8b21b48e05a8c56973d1953e5e5054d7b42b6b2 M	routes/contracts.js

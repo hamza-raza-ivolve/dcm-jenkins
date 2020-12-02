@@ -1,0 +1,121 @@
+Started by user [8mha:////4HD6tEfTJ7QsEaCvI2bAjbu33ztdrDILYMnn9DVuj0CjAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/dcm/customer-contract
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+using credential git
+Cloning the remote Git repository
+Cloning repository https://github.com/iVolve-Tech/ms-customer-contract
+ > git init /var/lib/jenkins/workspace/dcm/customer-contract # timeout=10
+Fetching upstream changes from https://github.com/iVolve-Tech/ms-customer-contract
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials git credentials
+ > git fetch --tags --progress -- https://github.com/iVolve-Tech/ms-customer-contract +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/iVolve-Tech/ms-customer-contract # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/iVolve-Tech/ms-customer-contract # timeout=10
+Fetching upstream changes from https://github.com/iVolve-Tech/ms-customer-contract
+using GIT_ASKPASS to set credentials git credentials
+ > git fetch --tags --progress -- https://github.com/iVolve-Tech/ms-customer-contract +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse origin/post-develop^{commit} # timeout=10
+Checking out Revision 1ae2cc4aa109fe2e52de17c13c86704be839cb4b (origin/post-develop)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1ae2cc4aa109fe2e52de17c13c86704be839cb4b # timeout=10
+Commit message: "Update Dockerfile"
+First time build. Skipping changelog.
+[customer-contract] $ /bin/sh -xe /tmp/jenkins4527288994291837177.sh
++ mv .env.dev .env
+[customer-contract] $ /bin/sh -xe /tmp/jenkins1555702977238652984.sh
++ echo -----------------Create Docker image-----------------
+-----------------Create Docker image-----------------
++ docker build -t customer-contract:1 .
+Sending build context to Docker daemon  162.3kB
+Step 1/8 : FROM node:10.18-alpine
+ ---> cb69d515e572
+Step 2/8 : RUN mkdir customer-contract
+ ---> Using cache
+ ---> 9554a6b2ac46
+Step 3/8 : COPY . /customer-contract
+ ---> 256353c48b29
+Step 4/8 : WORKDIR /customer-contract
+ ---> Running in 4e426f0aaf2d
+Removing intermediate container 4e426f0aaf2d
+ ---> c2d3fde5af7b
+Step 5/8 : RUN npm install
+ ---> Running in b097fb563ff2
+[91mnpm[0m[91m WARN pricingplan@1.0.0 No repository field.
+[0m[91m
+[0madded 120 packages from 158 contributors and audited 120 packages in 6.33s
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+found 2 vulnerabilities (1 low, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container b097fb563ff2
+ ---> 3778cf7e7a52
+Step 6/8 : RUN npm install nodemon -g
+ ---> Running in b663fcb355ba
+/usr/local/bin/nodemon -> /usr/local/lib/node_modules/nodemon/bin/nodemon.js
+
+> nodemon@2.0.4 postinstall /usr/local/lib/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+[32mLove nodemon? You can now support the project via the open collective:[22m[39m
+ > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+
+[91mnpm WARN [0m[91moptional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules/nodemon/node_modules/chokidar/node_modules/fsevents):
+[0m[91mnpm[0m[91m WARN[0m[91m notsup[0m[91m SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+[0m[91m
+[0m+ nodemon@2.0.4
+added 120 packages from 54 contributors in 7.925s
+Removing intermediate container b663fcb355ba
+ ---> 3b8482a8dd6b
+Step 7/8 : Expose 8024
+ ---> Running in dfa04d29b854
+Removing intermediate container dfa04d29b854
+ ---> f7c123ca18d8
+Step 8/8 : CMD ["nodemon"]
+ ---> Running in 249f6b836ff9
+Removing intermediate container 249f6b836ff9
+ ---> de7955be1dc6
+Successfully built de7955be1dc6
+Successfully tagged customer-contract:1
+[customer-contract] $ /bin/sh -xe /tmp/jenkins2208728801580620022.sh
++ echo ----------------PUSH Image On Registry--------------
+----------------PUSH Image On Registry--------------
++ docker tag customer-contract:1 10.81.1.50:5000/customer-contract:1
++ docker push 10.81.1.50:5000/customer-contract:1
+The push refers to repository [10.81.1.50:5000/customer-contract]
+2ea447d72691: Preparing
+426c78d7859e: Preparing
+90b3eed6d92a: Preparing
+8e07a65eb730: Preparing
+db429ded9db2: Preparing
+b2eb58aca3ed: Preparing
+faf9b62a76c1: Preparing
+5216338b40a7: Preparing
+faf9b62a76c1: Waiting
+5216338b40a7: Waiting
+b2eb58aca3ed: Waiting
+8e07a65eb730: Mounted from customer-integration
+db429ded9db2: Mounted from ms-billing
+b2eb58aca3ed: Mounted from ms-billing
+faf9b62a76c1: Mounted from ms-billing
+90b3eed6d92a: Pushed
+5216338b40a7: Mounted from ms-billing
+2ea447d72691: Pushed
+426c78d7859e: Pushed
+1: digest: sha256:64367def742bc8624084e7f6d41232f9a2d88c6c5b1cc420fe84ba0a360115bc size: 1997
+SSH: Connecting from host [jenkins]
+SSH: Connecting with configuration [test] ...
+SSH: EXEC: STDOUT/STDERR from command [kubectl set image deployment/customer-contract customer-contract=10.81.1.50:5000/customer-contract:1 --record
+
+] ...
+deployment.apps/customer-contract image updated
+SSH: EXEC: completed after 201 ms
+SSH: Disconnecting configuration [test] ...
+SSH: Transferred 0 file(s)
+Build step 'Send files or execute commands over SSH' changed build result to SUCCESS
+[Office365connector] Matched status 'SUCCESS' for webhook with name 'cloud7 builds'.
+Finished: SUCCESS

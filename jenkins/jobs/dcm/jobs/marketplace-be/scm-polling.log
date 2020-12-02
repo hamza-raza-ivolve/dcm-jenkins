@@ -1,0 +1,11 @@
+Started on Nov 9, 2020 2:08:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision ae8e65e679118b071d66be7aa4ea39d5e102b1e2 (origin/develop)
+using credential git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials git credentials
+ > git ls-remote -h -- https://github.com/iVolve-Tech/ms-marketplace-be.git # timeout=10
+Found 18 remote heads on https://github.com/iVolve-Tech/ms-marketplace-be.git
+[poll] Latest remote head revision on refs/heads/develop is: ae8e65e679118b071d66be7aa4ea39d5e102b1e2 - already built by 114
+Done. Took 2 sec
+No changes

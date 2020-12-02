@@ -1,0 +1,141 @@
+Started by an SCM change
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/dcm/customer-contract
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+using credential git
+Cloning the remote Git repository
+Cloning repository https://github.com/iVolve-Tech/ms-customer-contract
+ > git init /var/lib/jenkins/workspace/dcm/customer-contract # timeout=10
+Fetching upstream changes from https://github.com/iVolve-Tech/ms-customer-contract
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials git credentials
+ > git fetch --tags --progress -- https://github.com/iVolve-Tech/ms-customer-contract +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/iVolve-Tech/ms-customer-contract # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/iVolve-Tech/ms-customer-contract # timeout=10
+Fetching upstream changes from https://github.com/iVolve-Tech/ms-customer-contract
+using GIT_ASKPASS to set credentials git credentials
+ > git fetch --tags --progress -- https://github.com/iVolve-Tech/ms-customer-contract +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse origin/post-develop^{commit} # timeout=10
+Checking out Revision 1e71f89686160531d443c78134cf0718ec6c44a8 (origin/post-develop)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1e71f89686160531d443c78134cf0718ec6c44a8 # timeout=10
+Commit message: "Change response of user contract fetch"
+ > git rev-list --no-walk 1ae2cc4aa109fe2e52de17c13c86704be839cb4b # timeout=10
+[customer-contract] $ /bin/sh -xe /tmp/jenkins4653695681905591570.sh
++ mv .env.dev .env
+[customer-contract] $ /bin/sh -xe /tmp/jenkins275582193849305781.sh
++ echo -----------------Create Docker image-----------------
+-----------------Create Docker image-----------------
++ docker build -t customer-contract:4 .
+Sending build context to Docker daemon  208.4kB
+Step 1/8 : FROM node:10.18-alpine
+[Office365connector] Posting data to https://outlook.office.com/webhook/4c0df6cf-b15e-45e8-82c1-1ece841587fb@f4fec308-d686-4cf8-bcba-45eacc5d671e/JenkinsCI/a6760ff9df044b5c963de9e9c8be2d80/acf10f55-5f32-4113-9057-fee74a57bd89 may have failed. Webhook responded with status code - 410
+[Office365connector] Message from webhook - Connector configuration not found
+[Office365connector] Posting data to https://outlook.office.com/webhook/4c0df6cf-b15e-45e8-82c1-1ece841587fb@f4fec308-d686-4cf8-bcba-45eacc5d671e/JenkinsCI/a6760ff9df044b5c963de9e9c8be2d80/acf10f55-5f32-4113-9057-fee74a57bd89 may have failed. Webhook responded with status code - 410
+[Office365connector] Message from webhook - Connector configuration not found
+[Office365connector] Posting data to https://outlook.office.com/webhook/4c0df6cf-b15e-45e8-82c1-1ece841587fb@f4fec308-d686-4cf8-bcba-45eacc5d671e/JenkinsCI/a6760ff9df044b5c963de9e9c8be2d80/acf10f55-5f32-4113-9057-fee74a57bd89 may have failed. Webhook responded with status code - 410
+[Office365connector] Message from webhook - Connector configuration not found
+10.18-alpine: Pulling from library/node
+c9b1b535fdd9: Already exists
+4fa52e824d88: Already exists
+74c02285c2c3: Already exists
+36b5bf867b98: Already exists
+Digest: sha256:b56110ff6dfb7ecd11f0b90d2f64fee4d8d68f6b58857ba11109bb51df4e7b6a
+Status: Image is up to date for node:10.18-alpine
+ ---> cb69d515e572
+Step 2/8 : RUN mkdir customer-contract
+ ---> Running in c4b6ce1b3eda
+Removing intermediate container c4b6ce1b3eda
+ ---> 9604f6445bf6
+Step 3/8 : COPY . /customer-contract
+ ---> a2192fee8394
+Step 4/8 : WORKDIR /customer-contract
+ ---> Running in 2d14017ddd8f
+Removing intermediate container 2d14017ddd8f
+ ---> 2271e2695890
+Step 5/8 : RUN npm install
+ ---> Running in e79a8206c663
+[91mnpm WARN pricingplan@1.0.0 No repository field.
+[0m[91m
+[0madded 120 packages from 158 contributors and audited 120 packages in 7.737s
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+found 2 vulnerabilities (1 low, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container e79a8206c663
+ ---> 361bb9fc6371
+Step 6/8 : RUN npm install nodemon -g
+ ---> Running in 7c1624ba6169
+/usr/local/bin/nodemon -> /usr/local/lib/node_modules/nodemon/bin/nodemon.js
+
+> nodemon@2.0.4 postinstall /usr/local/lib/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+[32mLove nodemon? You can now support the project via the open collective:[22m[39m
+ > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+
+[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91moptional[0m[91m SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules/nodemon/node_modules/chokidar/node_modules/fsevents):
+[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91mnotsup[0m[91m SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+[0m[91m
+[0m+ nodemon@2.0.4
+added 119 packages from 53 contributors in 8.446s
+Removing intermediate container 7c1624ba6169
+ ---> 964fe28b98a3
+Step 7/8 : Expose 8024
+ ---> Running in f77bb32252c9
+Removing intermediate container f77bb32252c9
+ ---> 95ca48b5e137
+Step 8/8 : CMD ["nodemon"]
+ ---> Running in 53b1d2f89042
+Removing intermediate container 53b1d2f89042
+ ---> 49fe31ab79ed
+Successfully built 49fe31ab79ed
+Successfully tagged customer-contract:4
+[customer-contract] $ /bin/sh -xe /tmp/jenkins5170316136218228019.sh
++ echo ----------------PUSH Image On Registry--------------
+----------------PUSH Image On Registry--------------
++ docker tag customer-contract:4 10.81.1.50:5000/customer-contract:4
++ docker push 10.81.1.50:5000/customer-contract:4
+The push refers to repository [10.81.1.50:5000/customer-contract]
+3ad4275e2a24: Preparing
+efc57f685f98: Preparing
+58615262df62: Preparing
+58356c75bf28: Preparing
+db429ded9db2: Preparing
+b2eb58aca3ed: Preparing
+faf9b62a76c1: Preparing
+5216338b40a7: Preparing
+5216338b40a7: Waiting
+faf9b62a76c1: Waiting
+db429ded9db2: Waiting
+58615262df62: Waiting
+b2eb58aca3ed: Waiting
+3ad4275e2a24: Waiting
+efc57f685f98: Waiting
+58356c75bf28: Waiting
+58615262df62: Pushed
+3ad4275e2a24: Pushed
+db429ded9db2: Layer already exists
+58356c75bf28: Pushed
+b2eb58aca3ed: Layer already exists
+faf9b62a76c1: Layer already exists
+5216338b40a7: Layer already exists
+efc57f685f98: Pushed
+4: digest: sha256:1663e37b323ba0019df8cf57a0cd17d345422c82b37b3a7f13d055b9f81758e0 size: 1997
+SSH: Connecting from host [jenkins]
+SSH: Connecting with configuration [test] ...
+SSH: EXEC: STDOUT/STDERR from command [kubectl set image deployment/customer-contract customer-contract=10.81.1.50:5000/customer-contract:4 --record
+
+] ...
+deployment.apps/customer-contract image updated
+SSH: EXEC: completed after 7,007 ms
+SSH: Disconnecting configuration [test] ...
+SSH: Transferred 0 file(s)
+Build step 'Send files or execute commands over SSH' changed build result to SUCCESS
+[Office365connector] Matched status 'SUCCESS' for webhook with name 'cloud7 builds'.
+Finished: SUCCESS

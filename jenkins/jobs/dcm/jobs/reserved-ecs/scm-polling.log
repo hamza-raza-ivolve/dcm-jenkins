@@ -1,0 +1,11 @@
+Started on Nov 9, 2020 2:04:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision 313ef6435e4b9027a26cc92b4a83ee9b6a2ef6ee (origin/post-develop)
+using credential git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials git credentials
+ > git ls-remote -h -- https://github.com/iVolve-Tech/ms-reserved-ecs # timeout=10
+Found 6 remote heads on https://github.com/iVolve-Tech/ms-reserved-ecs
+[poll] Latest remote head revision on refs/heads/post-develop is: 313ef6435e4b9027a26cc92b4a83ee9b6a2ef6ee - already built by 13
+Done. Took 3 sec
+No changes

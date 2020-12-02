@@ -1,0 +1,151 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.plugins.office365connector.WebhookJobProperty plugin="Office-365-Connector@4.12.4">
+      <webhooks>
+        <jenkins.plugins.office365connector.Webhook>
+          <name>cloud7 builds</name>
+          <url>https://outlook.office.com/webhook/4c0df6cf-b15e-45e8-82c1-1ece841587fb@f4fec308-d686-4cf8-bcba-45eacc5d671e/JenkinsCI/a6760ff9df044b5c963de9e9c8be2d80/acf10f55-5f32-4113-9057-fee74a57bd89</url>
+          <startNotification>true</startNotification>
+          <notifySuccess>true</notifySuccess>
+          <notifyAborted>false</notifyAborted>
+          <notifyNotBuilt>false</notifyNotBuilt>
+          <notifyUnstable>false</notifyUnstable>
+          <notifyFailure>true</notifyFailure>
+          <notifyBackToNormal>false</notifyBackToNormal>
+          <notifyRepeatedFailure>false</notifyRepeatedFailure>
+          <timeout>30000</timeout>
+          <macros class="empty-list"/>
+          <factDefinitions class="empty-list"/>
+        </jenkins.plugins.office365connector.Webhook>
+      </webhooks>
+    </jenkins.plugins.office365connector.WebhookJobProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/iVolve-Tech/web-client</url>
+        <credentialsId>ef8e12de-efe0-4f97-9c4c-cfcd7a917acc</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>post-develop</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.29.5">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>H/5 * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>
+mv .env.dev .env
+sed -i &apos;/REACT_APP_API_GATEWAY/c\REACT_APP_API_GATEWAY=http://qa-middleware.ivolve.io:31907&apos; .env
+sed -i &apos;/REACT_APP_MONITORING_SOCKET_IP/c\REACT_APP_MONITORING_SOCKET_IP=http://qa-monitoring.ivolve.io:31907&apos; .env
+
+sed -i &apos;/REACT_APP_MARKETPLACE/c\REACT_APP_MARKETPLACE=http://qa-marketplace-fe.ivolve.io:31907&apos; .env
+sed -i &apos;/REACT_APP_KILLBILL_PRODUCT_URL/c\REACT_APP_KILLBILL_PRODUCT_URL=http://10.81.1.44:8080/1.0/kb/catalog&apos; .env
+sed -i &apos;/REACT_APP_ORCH/c\REACT_APP_ORCH=http://python-app:8002&apos; .env
+sed -i &apos;/REACT_APP_IAM/c\REACT_APP_IAM=http://iam:8003&apos; .env
+
+sed -i &apos;/REACT_APP_CLOUDFOR/c\REACT_APP_CLOUDFOR=detasad&apos; .env
+sed -i &apos;/REACT_APP_DEVELOPMENT_ENV/c\REACT_APP_DEVELOPMENT_ENV=true&apos; .env
+sed -i &apos;/REACT_APP_EMAILER/c\REACT_APP_EMAILER=http://emailer:8009&apos; .env
+sed -i &apos;/REACT_APP_BUILD_NUMBER/c\REACT_APP_BUILD_NUMBER=&apos;${BUILD_NUMBER} .env
+sed -i &apos;/REACT_APP_DEVELOPMENT_ENV/c\REACT_APP_DEVELOPMENT_ENV=true&apos; .env
+#hystax env
+sed -i &apos;/REACT_APP_HYSTAX_HOST_IP/c\REACT_APP_HYSTAX_HOST_IP=http://10.81.1.188&apos; .env
+sed -i &apos;/REACT_APP_PARTNER_ID/c\REACT_APP_PARTNER_ID=6f74a388-d6bd-49ea-9947-dfdc7e04c70d&apos; .env
+sed -i &apos;/REACT_APP_MOUNTPOINT_ID/c\REACT_APP_MOUNTPOINT_ID=9422f4f2-f913-4770-8475-6e3c5058b570&apos; .env
+sed -i &apos;/REACT_APP_JEDDAH_DCM/c\REACT_APP_JEDDAH_DCM=http://10.81.1.155:5000/v3&apos; .env
+sed -i &apos;/REACT_APP_RIYADH_DCM/c\REACT_APP_RIYADH_DCM=http://10.81.1.140:5000/v3&apos; .env
+#keycloak env
+sed -i &apos;/REACT_APP_KC_PASSWORD_VARIABLE/c\REACT_APP_KC_PASSWORD_VARIABLE=kcup&apos; .env
+sed -i &apos;/REACT_APP_DEFAULT_REGION/c\REACT_APP_DEFAULT_REGION=http://qa-middleware.ivolve.io:31907&apos; .env
+sed -i &apos;/REACT_APP_RIYADH_REGION/c\REACT_APP_RIYADH_REGION=http://qa-middleware.ivolve.io:31907&apos; .env
+sed -i &apos;/REACT_APP_JEDDAH_REGION/c\REACT_APP_JEDDAH_REGION=http://qa-backup-middleware.ivolve.io:31907&apos; .env
+sed -i &apos;/REACT_APP_KEYCLOAK_JSON_PATH/c\REACT_APP_KEYCLOAK_JSON_PATH=http://qa.ivolve.io:31907/keycloak.json&apos; .env
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>echo &quot;-----------------Create Docker image-----------------&quot;
+
+
+docker build -f Dockerfile.prod -t webclient:${BUILD_NUMBER} .</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>echo &quot;----------------PUSH Image On Registry--------------&quot;
+docker tag webclient:${BUILD_NUMBER} 10.81.1.50:5000/webclient:${BUILD_NUMBER}
+docker push 10.81.1.50:5000/webclient:${BUILD_NUMBER}</command>
+    </hudson.tasks.Shell>
+    <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin plugin="publish-over-ssh@1.20.1">
+      <delegate>
+        <consolePrefix>SSH: </consolePrefix>
+        <delegate plugin="publish-over@0.22">
+          <publishers>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.20.1">
+              <configName>QA-server</configName>
+              <verbose>false</verbose>
+              <transfers>
+                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                  <remoteDirectory>/</remoteDirectory>
+                  <sourceFiles>/</sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix>/</removePrefix>
+                  <remoteDirectorySDF>false</remoteDirectorySDF>
+                  <flatten>false</flatten>
+                  <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand>kubectl set image deployment/webclient webclient=10.81.1.50:5000/webclient:${BUILD_NUMBER} --record</execCommand>
+                  <execTimeout>120000</execTimeout>
+                  <usePty>false</usePty>
+                  <useAgentForwarding>false</useAgentForwarding>
+                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+              </transfers>
+              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+              <usePromotionTimestamp>false</usePromotionTimestamp>
+            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+          </publishers>
+          <continueOnError>false</continueOnError>
+          <failOnError>false</failOnError>
+          <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+          <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
+        </delegate>
+      </delegate>
+    </jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.38">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

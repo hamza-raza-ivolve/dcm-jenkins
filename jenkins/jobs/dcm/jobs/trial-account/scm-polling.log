@@ -1,0 +1,11 @@
+Started on Nov 9, 2020 2:05:03 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision 15e0ad7ed454b753173739a8070ac7e498163943 (origin/post-develop)
+using credential git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials git credentials
+ > git ls-remote -h -- https://github.com/iVolve-Tech/ms-trial-account.git # timeout=10
+Found 6 remote heads on https://github.com/iVolve-Tech/ms-trial-account.git
+[poll] Latest remote head revision on refs/heads/post-develop is: 15e0ad7ed454b753173739a8070ac7e498163943 - already built by 16
+Done. Took 16 sec
+No changes
